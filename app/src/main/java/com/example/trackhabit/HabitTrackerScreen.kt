@@ -29,9 +29,6 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-// ──────────────────────────────────────────────
-// PANTALLA PRINCIPAL
-// ──────────────────────────────────────────────
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HabitTrackerScreen(viewModel: HabitViewModel) {
@@ -95,9 +92,6 @@ fun HabitTrackerScreen(viewModel: HabitViewModel) {
     }
 }
 
-// ──────────────────────────────────────────────
-// ENCABEZADO CON PROGRESO
-// ──────────────────────────────────────────────
 @Composable
 fun HeaderSection(completed: Int, total: Int, progress: Float) {
     val animatedProgress by animateFloatAsState(
@@ -161,9 +155,6 @@ fun HeaderSection(completed: Int, total: Int, progress: Float) {
     }
 }
 
-// ──────────────────────────────────────────────
-// TARJETA DE HÁBITO
-// ──────────────────────────────────────────────
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HabitCard(habit: Habit, onToggle: () -> Unit, onDelete: () -> Unit) {
@@ -187,7 +178,7 @@ fun HabitCard(habit: Habit, onToggle: () -> Unit, onDelete: () -> Unit) {
             modifier          = Modifier.padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Icono emoji
+            // emoji icon
             Box(
                 modifier = Modifier
                     .size(52.dp)
@@ -216,7 +207,6 @@ fun HabitCard(habit: Habit, onToggle: () -> Unit, onDelete: () -> Unit) {
                 }
             }
 
-            // Botón eliminar
             IconButton(onClick = onDelete) {
                 Icon(
                     Icons.Default.Delete,
@@ -226,7 +216,6 @@ fun HabitCard(habit: Habit, onToggle: () -> Unit, onDelete: () -> Unit) {
                 )
             }
 
-            // Botón check
             val checkScale by animateFloatAsState(
                 targetValue = if (isCompleted) 1f else 0.85f,
                 label       = "scale"
@@ -258,9 +247,6 @@ fun HabitCard(habit: Habit, onToggle: () -> Unit, onDelete: () -> Unit) {
     }
 }
 
-// ──────────────────────────────────────────────
-// DIÁLOGO AGREGAR HÁBITO
-// ──────────────────────────────────────────────
 @Composable
 fun AddHabitDialog(onDismiss: () -> Unit, onConfirm: (String, String, Color) -> Unit) {
     var name          by remember { mutableStateOf("") }

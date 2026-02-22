@@ -15,8 +15,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            // Usa el tema que ya genera Android Studio al crear el proyecto:
-            // YourAppTheme { ... }  ← reemplaza con el nombre de tu tema
             MaterialTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
                     HabitTrackerScreen(viewModel)
